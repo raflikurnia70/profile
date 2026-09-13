@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Design Tokens — Dark base + modern red accent
+   ========================================================================== */
+:root {
+  --bg-0: #08080a; /* page base */
+  --bg-1: #101013; /* section alt */
+  --bg-2: #16161a; /* card */
+  --bg-3: #1e1e23; /* elevated / hover */
+
+  --border: #26262c;
+  --border-strong: #34343c;
+
+  --text-primary: #f4f4f6;
+  --text-secondary: #a8a8b3;
+  --text-muted: #6c6c78;
+
+  /* Red accent scale — modern crimson, not pure red */
+  --accent: #ef3b4e;
+  --accent-strong: #ff5468;
+  --accent-soft: #ff8a94;
+  --accent-dim: #7a1c28;
+  --accent-glow: rgba(239, 59, 78, 0.35);
+  --accent-bg: rgba(239, 59, 78, 0.1);
+  --accent-border: rgba(239, 59, 78, 0.4);
+
+  --gradient-accent: linear-gradient(135deg, #ff5468 0%, #ef3b4e 45%, #b3182b 100%);
+
+  --sans: "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
+  --heading: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --mono: ui-monospace, "JetBrains Mono", Consolas, monospace;
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-0);
+  color: var(--text-primary);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--heading);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+::selection {
+  background: var(--accent);
+  color: #0a0a0a;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-0);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-3);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-dim);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.text-gradient-accent {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glow-accent {
+  box-shadow: 0 0 40px var(--accent-glow);
+}
