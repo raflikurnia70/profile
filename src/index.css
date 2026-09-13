@@ -1,35 +1,39 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   Design Tokens — Dark base + modern red accent
+   Design Tokens — Graphite base, warm off-white type, one restrained accent.
+   Inspired by: Japanese industrial precision × premium technology studio.
    ========================================================================== */
 :root {
-  --bg-0: #08080a; /* page base */
-  --bg-1: #101013; /* section alt */
-  --bg-2: #16161a; /* card */
-  --bg-3: #1e1e23; /* elevated / hover */
+  /* Background layers — near-black graphite, not pure cool black */
+  --bg-0: #0a0a0b;
+  --bg-1: #111113;
+  --bg-2: #17171a;
+  --bg-3: #1e1e22;
 
-  --border: #26262c;
-  --border-strong: #34343c;
+  --border: #252528;
+  --border-strong: #34343a;
+  --grid-line: rgba(245, 240, 232, 0.045);
 
-  --text-primary: #f4f4f6;
-  --text-secondary: #a8a8b3;
-  --text-muted: #6c6c78;
+  /* Warm off-white type, not pure white — easier on the eyes, feels premium/paper-like */
+  --text-primary: #f1ece3;
+  --text-secondary: #a6a29b;
+  --text-muted: #6c6a67;
 
-  /* Red accent scale — muted crimson, used sparingly for a restrained, premium feel */
-  --accent: #d63a4a;
-  --accent-strong: #e8505f;
-  --accent-soft: #f0838f;
-  --accent-dim: #6b1e26;
-  --accent-glow: rgba(214, 58, 74, 0.18);
-  --accent-bg: rgba(214, 58, 74, 0.07);
-  --accent-border: rgba(214, 58, 74, 0.3);
+  /* One restrained technological accent — muted industrial red, used sparingly */
+  --accent: #c8434a;
+  --accent-strong: #d85b5f;
+  --accent-soft: #e29192;
+  --accent-dim: #5c2226;
+  --accent-glow: rgba(200, 67, 74, 0.14);
+  --accent-bg: rgba(200, 67, 74, 0.06);
+  --accent-border: rgba(200, 67, 74, 0.28);
 
-  --gradient-accent: linear-gradient(135deg, #e8505f 0%, #d63a4a 55%, #9c2530 100%);
+  --gradient-accent: linear-gradient(135deg, #d85b5f 0%, #c8434a 55%, #8f2b30 100%);
 
   --sans: "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
   --heading: "Space Grotesk", "Inter", system-ui, sans-serif;
-  --mono: ui-monospace, "JetBrains Mono", Consolas, monospace;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
 
   color-scheme: dark;
 }
@@ -50,6 +54,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  position: relative;
 }
 
 h1, h2, h3, h4 {
@@ -86,6 +91,26 @@ h1, h2, h3, h4 {
   }
 }
 
+/* ==========================================================================
+   Atmosphere — fine technical grid (page background) + film grain (overlay)
+   ========================================================================== */
+.bg-technical-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+.film-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+}
+
+/* ==========================================================================
+   Typography & label utilities
+   ========================================================================== */
 .text-gradient-accent {
   background: var(--gradient-accent);
   -webkit-background-clip: text;
@@ -93,6 +118,42 @@ h1, h2, h3, h4 {
   color: transparent;
 }
 
+.label-mono {
+  font-family: var(--mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
 .glow-accent {
   box-shadow: 0 0 40px var(--accent-glow);
+}
+
+/* Corner-bracket accent — technical "viewfinder" hover treatment */
+.corner-brackets::before,
+.corner-brackets::after,
+.corner-brackets > .bracket-tl,
+.corner-brackets > .bracket-br {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.corner-brackets::before {
+  top: 10px;
+  left: 10px;
+  border-top: 1.5px solid var(--accent-strong);
+  border-left: 1.5px solid var(--accent-strong);
+}
+.corner-brackets::after {
+  bottom: 10px;
+  right: 10px;
+  border-bottom: 1.5px solid var(--accent-strong);
+  border-right: 1.5px solid var(--accent-strong);
+}
+.corner-brackets:hover::before,
+.corner-brackets:hover::after {
+  opacity: 1;
 }

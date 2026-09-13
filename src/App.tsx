@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { AtmosphereOverlay } from "./components/AtmosphereOverlay";
 import { Footer } from "./components/Footer";
 import { Navbar } from "./components/Navbar";
 import { About } from "./sections/About";
@@ -30,6 +31,7 @@ function App() {
 
   return (
     <>
+      <AtmosphereOverlay />
       <Navbar />
       <main>
         <Hero />

@@ -86,6 +86,29 @@ Status: `[ ]` belum, `[x]` selesai
 
 ---
 
+## CP11 — Visual Upgrade: Premium Industrial-Tech Redesign
+- [x] Design tokens: graphite base + warm off-white type + satu accent merah restrained (bukan neon)
+- [x] Atmosphere: fine technical grid (background) + film grain overlay (sitewide, `AtmosphereOverlay`)
+- [x] Hero: layout editorial asimetris, tipografi besar (nama + "Industrial Digital Transformation")
+- [x] 3D Hero: "Industrial Intelligence Core" — faceted metallic core + thin wireframe shell + data lines + studio lighting + scroll-driven camera parallax
+- [x] Skills → "Technology Ecosystem": radial diagram (hub + 8 node kategori + animated connectors), legend lengkap tetap ada di bawah
+- [x] MagneticButton: bentuk lebih teknikal (rounded-md), fix bug gradient tidak ter-render (Tailwind arbitrary-value ambiguity → inline style)
+- **Bug ditemukan & diperbaiki:** kombinasi Tailwind translate-centering + Framer Motion `scale` animation pada elemen yang sama saling menimpa `transform` → node ecosystem diagram tidak muncul. Solusi: pisahkan wrapper positioning (CSS murni) dari elemen yang dianimasikan.
+- **Verifikasi:** Build bersih, screenshot headless dicek per section, DOM diinspeksi langsung (bukan tebak dari screenshot) untuk konfirmasi fix. ✅ 13 Sep 2026.
+
+## CP12 — Journey/Timeline: Career Evolution Redesign
+- [x] Data timeline diperbarui dengan wording presisi dari user (LKS Mechatronics peringkat 2, ASC XIII IoT peringkat 1 — wording lengkap resmi), field `category` (EDUCATION/CAREER/ACHIEVEMENT), `skills[]`, `image`, `achievement` flag
+- [x] Sistem gambar terpusat: `src/data/journeyImages.ts` — ganti 1 baris atau timpa file di `public/images/journey/*.jpg` untuk update foto tanpa sentuh komponen
+- [x] Placeholder abstrak-teknikal lokal (8 file jpg, digenerate via headless-render, bukan foto asli/berhak cipta) — siap ditimpa user
+- [x] `CircularPhoto` — foto bulat dengan fallback elegan (inisial) kalau file tidak ada, achievement ring untuk 2 pencapaian nasional
+- [x] Evolution strip (Automation → ... → Digital Transformation) di atas timeline + versi masa depan (Digital Transformation → ... → Entrepreneurship) di closing
+- [x] Spine vertikal progressive-draw tetap dipertahankan, sekarang tersambung ke foto bulat sebagai node (bukan angka)
+- [x] Narrative copy sesuai brief ("From understanding machines to building the intelligence around them.")
+- **Verifikasi:** Screenshot desktop (semua 8 milestone + achievement emphasis + closing) dan mobile (390px, tanpa horizontal overflow — scrollWidth === clientWidth) dicek. ✅ 13 Sep 2026.
+- **Catatan:** Foto masih placeholder abstrak buatan sendiri (bukan foto asli) — tinggal timpa file di `public/images/journey/` dengan nama sama.
+
+---
+
 ## Catatan Tech Stack
 - **Build tool:** Vite
 - **Framework:** React 18 + TypeScript

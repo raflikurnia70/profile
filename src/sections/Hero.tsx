@@ -17,27 +17,35 @@ export function Hero() {
 
       <Container className="relative z-10">
         <motion.p
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-5 inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--bg-2)]/60 px-4 py-1.5 text-xs font-medium text-[var(--text-secondary)] backdrop-blur"
+          className="label-mono mb-6 flex items-center gap-3 text-[11px] text-[var(--text-muted)]"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-[var(--accent-strong)]" />
           {profile.role}
         </motion.p>
 
-        <h1 className="max-w-3xl text-4xl font-semibold leading-[1.1] tracking-tight md:text-6xl">
-          <AnimatedText text="Rafli Kurnia" as="span" />{" "}
-          <GradientText>
-            <AnimatedText text="Nugroho" as="span" delay={0.15} />
-          </GradientText>
+        <h1 className="max-w-4xl text-[13vw] font-medium uppercase leading-[0.95] tracking-tight text-[var(--text-primary)] sm:text-6xl md:text-7xl lg:text-8xl">
+          <AnimatedText text="Rafli Kurnia" as="span" />
+          <br />
+          <AnimatedText text="Nugroho" as="span" delay={0.12} />
         </h1>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.45 }}
+          className="mt-5 font-heading text-xl font-medium uppercase tracking-[0.08em] sm:text-2xl md:text-3xl"
+        >
+          <GradientText>{profile.positioning}</GradientText>
+        </motion.h2>
 
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-6 max-w-xl text-base leading-relaxed text-[var(--text-secondary)] md:text-lg"
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-6 max-w-xl text-sm leading-relaxed text-[var(--text-secondary)] md:text-base"
         >
           {profile.tagline}
         </motion.p>
@@ -45,7 +53,7 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.65 }}
+          transition={{ duration: 0.6, delay: 0.75 }}
           className="mt-10 flex flex-wrap items-center gap-4"
         >
           <MagneticButton href="#projects">Lihat Proyek</MagneticButton>
@@ -57,14 +65,11 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.9 }}
-          className="mt-16 flex flex-wrap gap-x-6 gap-y-2 text-xs text-[var(--text-muted)]"
+          transition={{ duration: 0.6, delay: 1 }}
+          className="label-mono mt-16 grid max-w-2xl grid-cols-2 gap-x-8 gap-y-3 border-t border-[var(--border)] pt-6 text-[10px] text-[var(--text-muted)] sm:grid-cols-3"
         >
           {profile.focusTags.map((tag) => (
-            <span key={tag} className="flex items-center gap-2">
-              <span className="h-1 w-1 rounded-full bg-[var(--border-strong)]" />
-              {tag}
-            </span>
+            <span key={tag}>{tag}</span>
           ))}
         </motion.div>
       </Container>

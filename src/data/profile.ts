@@ -1,6 +1,9 @@
 export const profile = {
   name: "Rafli Kurnia Nugroho",
   role: "IT & Digital Transformation Professional",
+  // Master professional positioning statement — his own stated identity, used as a large
+  // display line in the hero (not a new fact; sourced verbatim from his positioning notes).
+  positioning: "Industrial Digital Transformation",
   tagline:
     "Manufacturing × Technology × Data × AI — bridging industrial experience with technology, data, and AI to build practical, scalable digital solutions.",
   location: "Indonesia",

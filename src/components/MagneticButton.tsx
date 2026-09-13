@@ -40,12 +40,16 @@ export function MagneticButton({
   }
 
   const base = cn(
-    "relative inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-colors duration-200",
+    "relative inline-flex items-center justify-center gap-2 rounded-md px-6 py-3 text-sm font-medium tracking-wide transition-colors duration-200",
     variant === "primary"
-      ? "bg-[var(--gradient-accent)] text-white shadow-[0_8px_30px_var(--accent-glow)] hover:brightness-110"
+      ? "text-white shadow-[0_8px_24px_var(--accent-glow)] hover:brightness-110"
       : "border border-[var(--border-strong)] text-[var(--text-primary)] hover:border-[var(--accent-border)] hover:text-[var(--accent-strong)]",
     className,
   );
+  // Set via inline style, not a Tailwind arbitrary background class: Tailwind can't tell
+  // a CSS-variable value is a gradient image and would emit it as background-color instead.
+  const primaryStyle: React.CSSProperties | undefined =
+    variant === "primary" ? { backgroundImage: "var(--gradient-accent)" } : undefined;
 
   const motionProps = {
     animate: { x: offset.x, y: offset.y },
@@ -63,6 +67,7 @@ export function MagneticButton({
         rel={rel}
         aria-label={ariaLabel}
         className={base}
+        style={primaryStyle}
         {...motionProps}
       >
         {children}
@@ -76,6 +81,7 @@ export function MagneticButton({
       onClick={onClick}
       aria-label={ariaLabel}
       className={base}
+      style={primaryStyle}
       {...motionProps}
     >
       {children}

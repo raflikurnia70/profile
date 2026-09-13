@@ -13,7 +13,7 @@ export function ParticleField({ count = 320, radius = 6.5 }: ParticleFieldProps)
   const [positions, colors] = useMemo(() => {
     const pos = new Float32Array(count * 3);
     const col = new Float32Array(count * 3);
-    const base = new THREE.Color("#d63a4a");
+    const base = new THREE.Color("#c8434a");
     const dim = new THREE.Color("#4a4a52");
 
     for (let i = 0; i < count; i++) {
