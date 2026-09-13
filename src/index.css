@@ -16,16 +16,16 @@
   --text-secondary: #a8a8b3;
   --text-muted: #6c6c78;
 
-  /* Red accent scale — modern crimson, not pure red */
-  --accent: #ef3b4e;
-  --accent-strong: #ff5468;
-  --accent-soft: #ff8a94;
-  --accent-dim: #7a1c28;
-  --accent-glow: rgba(239, 59, 78, 0.35);
-  --accent-bg: rgba(239, 59, 78, 0.1);
-  --accent-border: rgba(239, 59, 78, 0.4);
+  /* Red accent scale — muted crimson, used sparingly for a restrained, premium feel */
+  --accent: #d63a4a;
+  --accent-strong: #e8505f;
+  --accent-soft: #f0838f;
+  --accent-dim: #6b1e26;
+  --accent-glow: rgba(214, 58, 74, 0.18);
+  --accent-bg: rgba(214, 58, 74, 0.07);
+  --accent-border: rgba(214, 58, 74, 0.3);
 
-  --gradient-accent: linear-gradient(135deg, #ff5468 0%, #ef3b4e 45%, #b3182b 100%);
+  --gradient-accent: linear-gradient(135deg, #e8505f 0%, #d63a4a 55%, #9c2530 100%);
 
   --sans: "Inter", system-ui, "Segoe UI", Roboto, sans-serif;
   --heading: "Space Grotesk", "Inter", system-ui, sans-serif;

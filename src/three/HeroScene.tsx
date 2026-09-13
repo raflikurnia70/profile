@@ -12,7 +12,7 @@ function StaticFallback() {
       className="absolute inset-0"
       style={{
         background:
-          "radial-gradient(60% 50% at 50% 40%, rgba(239,59,78,0.18), transparent 70%), radial-gradient(40% 40% at 80% 70%, rgba(239,59,78,0.08), transparent 70%)",
+          "radial-gradient(60% 50% at 65% 45%, rgba(214,58,74,0.10), transparent 70%), radial-gradient(40% 40% at 85% 70%, rgba(214,58,74,0.05), transparent 70%)",
       }}
     />
   );
@@ -38,8 +38,7 @@ export function HeroScene() {
         gl={{ antialias: true, alpha: true }}
       >
         <Suspense fallback={null}>
-          <ambientLight intensity={0.4} />
-          <pointLight position={[5, 5, 5]} intensity={40} color="#ff5468" />
+          {/* CoreMesh/ParticleField use unlit materials by design (flat wireframe look); no lights needed. */}
           <CoreMesh />
           <ParticleField />
         </Suspense>

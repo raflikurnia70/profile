@@ -20,12 +20,12 @@ export function CoreMesh() {
   return (
     <group ref={groupRef} position={[2.6, 0, -1]}>
       <mesh>
-        <icosahedronGeometry args={[1.6, 1]} />
-        <meshBasicMaterial color="#ef3b4e" wireframe transparent opacity={0.5} />
+        <icosahedronGeometry args={[1.5, 1]} />
+        <meshBasicMaterial color="#d63a4a" wireframe transparent opacity={0.28} />
       </mesh>
-      <mesh scale={1.35}>
-        <icosahedronGeometry args={[1.6, 0]} />
-        <meshBasicMaterial color="#7a1c28" wireframe transparent opacity={0.22} />
+      <mesh scale={1.5}>
+        <icosahedronGeometry args={[1.5, 0]} />
+        <meshBasicMaterial color="#5a5a62" wireframe transparent opacity={0.12} />
       </mesh>
     </group>
   );

@@ -15,9 +15,16 @@ export const timeline: TimelineItem[] = [
   },
   {
     period: "2019",
+    title: "Juara 2 LKS Nasional — Mechatronics",
+    org: "Lomba Kompetensi Siswa Tingkat Nasional",
+    desc: "Meraih peringkat kedua tingkat nasional pada bidang Mechatronics, sebagai bagian dari tim.",
+    highlight: "National Achievement",
+  },
+  {
+    period: "2019",
     title: "Juara 1 Seleksi Nasional IoT",
-    org: "ASEAN Skill Competition XIII — Kemnaker RI",
-    desc: "Bersama Akhmad Satria Daris Jaya, meraih peringkat pertama seleksi nasional calon kompetitor bidang Internet of Things. Dicatat resmi dalam publikasi TMMIN.",
+    org: "ASEAN Skill Competition (ASC) XIII — Kemnaker RI",
+    desc: "Bersama Akhmad Satria Daris Jaya, meraih peringkat pertama seleksi nasional calon kompetitor bidang Internet of Things, mengungguli tim lain di seleksi tersebut. Terpilih mewakili Indonesia pada ASC XIII yang dijadwalkan berlangsung di Singapura pada Juli 2020. Dicatat resmi dalam publikasi TMMIN Newsroom.",
     highlight: "National Achievement",
   },
   {
