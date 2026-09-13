@@ -78,9 +78,11 @@ Status: `[ ]` belum, `[x]` selesai
 - [x] `git init` + initial commit (commit email diset lokal ke raflikurnia70@gmail.com, bukan email kerja)
 - [x] Connect remote `origin` → `https://github.com/raflikurnia70/profile.git`
 - [x] Push ke branch `main` — commit `c3d2823`
-- [x] Setup GitHub Pages via GitHub Actions (`.github/workflows/deploy.yml`) + `base: '/profile/'` di `vite.config.ts`
-- **Verifikasi:** Push sukses (dicek via GitHub API). ✅ 13 Sep 2026.
-- **Perlu aksi manual sekali:** di GitHub repo → Settings → Pages → Source pilih **GitHub Actions** (tidak bisa diaktifkan otomatis tanpa token API). Setelah itu, tiap push ke `main` auto-deploy ke `https://raflikurnia70.github.io/profile/`.
+- [x] Setup GitHub Pages — **switched** dari GitHub Actions workflow ke deploy manual via `gh-pages` npm package setelah workflow gagal (repo Pages belum di-enable & "Get Pages site" API 404 terus meski source sudah dipilih)
+- [x] `base: '/profile/'` di `vite.config.ts` (path aset sesuai project Pages URL)
+- [x] Script `npm run deploy` (`vite build` → `gh-pages -d dist`) — push hasil build ke branch `gh-pages`
+- **Verifikasi:** Branch `gh-pages` terbukti ada di remote (`git ls-remote`). ✅ 13 Sep 2026.
+- **Perlu aksi manual sekali:** di GitHub repo → Settings → Pages → Source pilih **"Deploy from a branch"** → branch **gh-pages** → folder **/ (root)** → Save. Setelah itu live di `https://raflikurnia70.github.io/profile/`. Update berikutnya cukup jalankan `npm run deploy` lagi.
 
 ---
 
